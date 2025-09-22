@@ -1,0 +1,13 @@
+{
+    "name": "nimp/observer",
+    "description": "minimal realization lets the text editor object notify other service objects about changes in its state",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Nimp\\Observer\\": "src/"
+        }
+    },
+    "minimum-stability": "RC",
+    "require": {}
+}
