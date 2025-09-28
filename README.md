@@ -15,14 +15,12 @@ final class MyListener implements EventListenerInterface
 {
     public function events(): iterable
     {
-        return [
-            StartedEvent::class => $this->onStarted(...),
-            MyEvent::class => 'onMyEvent',
-            MyStoppableEvent::class => function (MyStoppableEvent $e): void {
+        yield StartedEvent::class => $this->onStarted(...);
+        yield MyEvent::class => 'onMyEvent';
+        yield MyStoppableEvent::class => function (MyStoppableEvent $e): void {
                 // handle and stop propagation if needed
                 $e->stop();
-            },
-        ];
+            };
     }
     
     public function onStarted(StartedEvent $event): void
