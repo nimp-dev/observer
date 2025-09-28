@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+        bootstrap="vendor/autoload.php"
+        colors="true"
+        cacheDirectory=".phpunit.cache"
+        beStrictAboutTestsThatDoNotTestAnything="true"
+        beStrictAboutOutputDuringTests="true"
+>
+    <testsuites>
+        <testsuite name="Nimp Observer Test Suite">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <source>
+        <include>
+            <directory>core</directory>
+        </include>
+    </source>
+</phpunit>

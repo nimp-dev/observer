@@ -7,7 +7,7 @@ use Psr\EventDispatcher\ListenerProviderInterface;
 class ListenerProvider implements ListenerProviderInterface
 {
     /**
-     * @var array
+     * @var array<string, list<callable>>
      */
     private array $listeners = [];
 
@@ -29,8 +29,10 @@ class ListenerProvider implements ListenerProviderInterface
     }
 
     /**
+     * PSR-14: Returns a list of listeners for an event.
+     *
      * @param object $event
-     * @return iterable
+     * @return iterable<callable(object): void>
      */
     public function getListenersForEvent(object $event): iterable
     {
