@@ -5,9 +5,12 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Nimp\\Observer\\": "src/"
+            "Nimp\\Observer\\": "core/"
         }
     },
     "minimum-stability": "RC",
-    "require": {}
+    "require": {
+      "php": ">=8.3",
+      "psr/event-dispatcher": "1.*"
+    }
 }
