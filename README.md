@@ -42,5 +42,5 @@ $dispatcher = new EventDispatcher($provider);
 
 Tests
 ```BASH
-bash composer install composer test
+composer install && composer test
 ```
