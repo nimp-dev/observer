@@ -2,13 +2,13 @@
 
 Minimalistic implementation of event dispatching according to PSR-14: EventDispatcher + ListenerProvider.
 
-Installation
+## Installation
 
 ```BASH
-bash composer require nimp/observer
+composer require nimp/observer
 ```
 
-Quick start
+## Quick start
 
 ```PHP
 final class MyListener implements EventListenerInterface
@@ -40,7 +40,7 @@ $provider->addListeners(new MyListener());
 $dispatcher = new EventDispatcher($provider);
 ```
 
-Tests
+## Tests
 ```BASH
 composer install && composer test
 ```

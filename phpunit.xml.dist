@@ -13,7 +13,7 @@
     </testsuites>
     <source>
         <include>
-            <directory>core</directory>
+            <directory>src</directory>
         </include>
     </source>
 </phpunit>
