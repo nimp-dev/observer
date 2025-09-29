@@ -3,7 +3,6 @@
 namespace Nimp\Observer\Tests;
 
 use Nimp\Observer\EventDispatcher;
-use Nimp\Observer\EventListenerInterface;
 use Nimp\Observer\ListenerProvider;
 use Nimp\Observer\Tests\Fixtures\CollectorListener;
 use Nimp\Observer\Tests\Fixtures\DummyEvent;
@@ -17,6 +16,9 @@ use PHPUnit\Framework\TestCase;
 #[CoversClass(ListenerProvider::class)]
 final class EventDispatcherTest extends TestCase
 {
+    /**
+     * @return void
+     */
     #[Test]
     public function testDispatchCallsAllListenersForClassAndNamedEvent(): void
     {
@@ -35,6 +37,9 @@ final class EventDispatcherTest extends TestCase
     }
 
 
+    /**
+     * @return void
+     */
     #[Test]
     public function testDispatchWorksWithNamedEventInterface(): void
     {
@@ -49,6 +54,9 @@ final class EventDispatcherTest extends TestCase
         $this->assertContains('onNamedEvent', $collector->handled);
     }
 
+    /**
+     * @return void
+     */
     #[Test]
     public function testDispatchWithNoListenersDoesNothing(): void
     {
@@ -60,4 +68,23 @@ final class EventDispatcherTest extends TestCase
 
         $this->assertSame($event, $result);
     }
+
+    /**
+     * @return void
+     */
+    #[Test]
+    public function testDispatchRespectsStoppableEvent(): void
+    {
+
+        $listener = new CollectorListener();
+        $provider = new ListenerProvider();
+        $provider->addListeners($listener);
+
+        $dispatcher = new EventDispatcher($provider);
+        $dispatcher->dispatch(new StoppableDummyEvent());
+
+        $this->assertSame(['onStoppableEvent'], $listener->handled);
+    }
+
+
 }

@@ -9,6 +9,9 @@ use Nimp\Observer\NamedEventInterface;
  */
 final class NamedDummyEvent implements NamedEventInterface
 {
+    /**
+     * @inheritdoc
+     */
     public function eventName(): ?string
     {
         return 'named.event';

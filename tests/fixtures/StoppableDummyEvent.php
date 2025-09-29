@@ -9,13 +9,24 @@ use Psr\EventDispatcher\StoppableEventInterface;
  */
 final class StoppableDummyEvent implements StoppableEventInterface
 {
+    /**
+     * Is propagation stopped?
+     * @var bool
+     */
     private bool $stopped = false;
 
+    /**
+     * @inheritdoc
+     */
     public function isPropagationStopped(): bool
     {
         return $this->stopped;
     }
 
+    /**
+     * stop propagation
+     * @return void
+     */
     public function stop(): void
     {
         $this->stopped = true;
