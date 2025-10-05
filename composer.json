@@ -23,7 +23,8 @@
       }
     },
     "scripts": {
-      "test": "phpunit --colors=always"
+      "test": "phpunit --colors=always",
+      "phpstan": "vendor/bin/phpstan analyse src --level=10"
     }
 
 }
