@@ -1,6 +1,6 @@
 <?php
 
-namespace Nimp\Observer\Tests\fixtures;
+namespace Nimp\Observer\Tests\Fixtures;
 
 use Psr\EventDispatcher\StoppableEventInterface;
 
